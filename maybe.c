@@ -19,6 +19,19 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    if (argc >= 2 && (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)) {
+        puts("Call it Maybe :) \n"
+             "\n"
+             "Usage:\n"
+             "  maybe <cmd>         run cmd with 50% chance\n"
+             "  maybe maybe <cmd>   run cmd with random chance (10-90%)\n"
+             "  maybe -c <N> <cmd>  run cmd with N% chance (0-100)\n"
+             "  <cmd> | maybe       pass stdin to stdout with 50% chance\n"
+             "\n"
+             "Exit 0 whether the command runs or not.");
+        return 0;
+    }
+
     int threshold = 50;  // default: 50% chance
     int cmd_start = 1;   // index into argv where the real command begins
 
